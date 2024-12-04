@@ -104,13 +104,13 @@
                     <label for="vehicle-type">Vehicle Type:</label>
                     <select id="vehicle-type" name="Vehicle Type" required>
                         <option value="" data-fare="0">Select a vehicle type</option>
-                        <option value="economy" data-fare="50">Economy (1-4 passengers) - ₹50</option>
-                        <option value="standard" data-fare="75">Standard (1-4 passengers) - ₹75</option>
-                        <option value="luxury" data-fare="120">Luxury (1-4 passengers) - ₹120</option>
-                        <option value="suv" data-fare="150">SUV (5-7 passengers) - ₹150</option>
-                        <option value="minivan" data-fare="200">Minivan (8-12 passengers) - ₹200</option>
-                        <option value="bus-small" data-fare="300">Small Bus (13-16 passengers) - ₹300</option>
-                        <option value="bus-large" data-fare="400">Large Bus (17-20 passengers) - ₹400</option>
+                        <option value="economy" data-fare="">Sedon (1-4 passengers) - </option>
+                        <option value="standard" data-fare="75">Ertiga (1-4 passengers) - </option>
+                        <option value="luxury" data-fare="120">Innova (1-4 passengers) - </option>
+                        <option value="suv" data-fare="150">Crysta (5-7 passengers) - </option>
+                        <option value="minivan" data-fare="200">Urbania (8-12 passengers) - </option>
+                        <option value="bus-small" data-fare="300">Tempo Travel (13-17 passengers) - </option>
+                        <option value="bus-large" data-fare="400">Tavera (1-8 passengers) - </option>
                     </select>
                 </div>
             </div>
@@ -119,13 +119,13 @@
             <div class="extra-items">
                 <div>
                     <label>Extra Items:</label><br>
-                    <input type="checkbox" id="gps" name="Extra Items" value="GPS"> GPS (₹50)
+                    <input type="checkbox" id="gps" name="Extra Items" value="GPS"> GPS ()
                 </div>
                 <div>
-                    <input type="checkbox" id="child-seat" name="Extra Items" value="Child Seat"> Child Seat (₹100)
+                    <input type="checkbox" id="child-seat" name="Extra Items" value="Child Seat"> Child Seat ()
                 </div>
                 <div>
-                    <input type="checkbox" id="wifi" name="Extra Items" value="WiFi"> WiFi (₹200)
+                    <input type="checkbox" id="wifi" name="Extra Items" value="WiFi"> WiFi ()
                 </div>
             </div>
 
@@ -168,44 +168,5 @@
         </form>
     </div>
 
-    <script>
-        // Calculate Total Amount
-        const vehiclePrices = {
-            'economy': 50,
-            'standard': 75,
-            'luxury': 120,
-            'suv': 150,
-            'minivan': 200,
-            'bus-small': 300,
-            'bus-large': 400
-        };
-
-        const extraItemPrices = {
-            'GPS': 50,
-            'Child Seat': 100,
-            'WiFi': 200
-        };
-
-        document.getElementById('vehicle-type').addEventListener('change', calculateTotal);
-        document.getElementById('gps').addEventListener('change', calculateTotal);
-        document.getElementById('child-seat').addEventListener('change', calculateTotal);
-        document.getElementById('wifi').addEventListener('change', calculateTotal);
-
-        function calculateTotal() {
-            let totalAmount = 0;
-
-            // Get the selected vehicle type price
-            const vehicleType = document.getElementById('vehicle-type').value;
-            totalAmount += vehiclePrices[vehicleType] || 0;
-
-            // Add extra items price
-            if (document.getElementById('gps').checked) totalAmount += extraItemPrices['GPS'];
-            if (document.getElementById('child-seat').checked) totalAmount += extraItemPrices['Child Seat'];
-            if (document.getElementById('wifi').checked) totalAmount += extraItemPrices['WiFi'];
-
-            // Display the total amount
-            document.getElementById('amount').value = '₹' + totalAmount;
-        }
-    </script>
-</body>
+    </body>
 </html>
