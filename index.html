@@ -1,0 +1,124 @@
+<!-- Compact Car Booking Form -->
+<div style="max-width: 800px; margin: 20px auto; padding: 20px; border: 2px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif; background: linear-gradient(135deg, #ff7e5f, #feb47b); position: relative; overflow: hidden;">
+    <h2 style="text-align: center; color: #fff; font-size: 1.5em;">Book Your Ride</h2>
+    <form id="carBookingForm" method="POST" action="https://formspree.io/f/xvgolgnv">
+        <!-- Pickup and Drop-off Section -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+            <div>
+                <label for="pickup-location" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Pickup Location:</label>
+                <input type="text" id="pickup-location" name="pickupLocation" placeholder="Pickup location" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+            </div>
+            <div>
+                <label for="dropoff-location" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Drop-off Location:</label>
+                <input type="text" id="dropoff-location" name="dropoffLocation" placeholder="Drop-off location" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+            </div>
+            <div>
+                <label for="pickup-date" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Pickup Date:</label>
+                <input type="date" id="pickup-date" name="pickupDate" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+            </div>
+            <div>
+                <label for="pickup-time" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Pickup Time:</label>
+                <input type="time" id="pickup-time" name="pickupTime" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+            </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px;">
+            <div>
+                <label for="email" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+            </div>
+            <div>
+                <label for="whatsapp-number" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">WhatsApp Number:</label>
+                <input type="tel" id="whatsapp-number" name="whatsappNumber" placeholder="WhatsApp number" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+            </div>
+            <div>
+                <label for="vehicle-type" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Vehicle Type:</label>
+                <select id="vehicle-type" name="vehicleType" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+                    <option value="" data-fare="0">Select a vehicle type</option>
+                    <option value="economy" data-fare="50">Economy (1-4 passengers)</option>
+                    <option value="standard" data-fare="75">Standard (1-4 passengers)</option>
+                    <option value="luxury" data-fare="120">Luxury (1-4 passengers)</option>
+                    <option value="suv" data-fare="150">SUV (5-7 passengers)</option>
+                    <option value="minivan" data-fare="200">Minivan (8-12 passengers)</option>
+                    <option value="bus-small" data-fare="300">Small Bus (13-16 passengers)</option>
+                    <option value="bus-large" data-fare="400">Large Bus (17-20 passengers)</option>
+                </select>
+            </div>
+            <div>
+                <div style="margin: 10px 0; font-size: 0.9em; color: #fff;">
+                    <label style="font-weight: bold;">Extras:</label><br>
+                    <label><input type="checkbox" name="extras" value="GPS" data-fare="10"> GPS (+$10)</label><br>
+                    <label><input type="checkbox" name="extras" value="child-seat" data-fare="15"> Child Seat (+$15)</label><br>
+                    <label><input type="checkbox" name="extras" value="extra-driver" data-fare="20"> Extra Driver (+$20)</label><br>
+                    <label><input type="checkbox" name="extras" value="wifi" data-fare="5"> In-Car WiFi (+$5)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px;">
+            <div>
+                <label for="payment-method" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Payment Method:</label>
+                <select id="payment-method" name="paymentMethod" required style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;">
+                    <option value="">Select a payment method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="cash">Cash</option>
+                    <option value="mobile-wallet">Mobile Wallet</option>
+                </select>
+            </div>
+            <div style="grid-column: span 2;">
+                <label for="notes" style="font-weight: bold; font-size: 0.9em; display: block; color: #fff;">Special Requests:</label>
+                <textarea id="notes" name="notes" placeholder="Enter any special requests" style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9em;"></textarea>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; font-size: 1em; border: none; border-radius: 5px; cursor: pointer;">Book Now</button>
+    </form>
+
+    <!-- Confirmation Message -->
+    <div id="confirmation-message" style="display:none; margin-top: 20px; padding: 20px; border: 2px solid #ddd; border-radius: 5px; background-color: #f9f9f9;">
+        <h3>Thank you for booking!</h3>
+        <p>We’ve received your booking request. A confirmation has been sent to your email and WhatsApp number.</p>
+    </div>
+
+    <!-- Twinkling Effect -->
+    <div class="twinkling-line"></div>
+</div>
+
+<style>
+    /* Twinkling Effect */
+    .twinkling-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-radius: 10px;
+        box-sizing: border-box;
+        border: 3px solid transparent;
+        background: linear-gradient(45deg, #ff7e5f 25%, #feb47b 50%, #ff7e5f 75%);
+        background-size: 200% 200%;
+        animation: twinkling 1.5s infinite alternate;
+    }
+
+    @keyframes twinkling {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 100% 100%;
+        }
+    }
+</style>
+
+<script>
+    document.getElementById('carBookingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Show confirmation message
+        document.getElementById('confirmation-message').style.display = 'block';
+    });
+</script>
